@@ -1,0 +1,100 @@
+<p>{{ listdePerros.message }}</p>
+<div class="contenedor">
+  <img class="imagen-ajustada" src="{{ listdePerros.message }}" alt="" />
+  <button type="button" class="btn btn-secondary" (click)="call()">
+    Obtener una nueva imagen
+  </button>
+</div>
+<div>
+  <textarea [(ngModel)]="contenidoTextarea" appWhiteSpace></textarea>
+  <div class="recuadro">{{ contenidoTextarea }}</div>
+</div>
+
+<div>
+  <button routerLink="/admin/formulario">Ir al formulario</button>
+</div>
+
+<br>
+<h1>Datepickers</h1>
+<br>
+<mat-form-field class="example-form-field">
+  <mat-label>First campaign</mat-label>
+  <mat-date-range-input
+    [formGroup]="campaignOne"
+    [rangePicker]="campaignOnePicker"
+    [comparisonStart]="campaignTwo.value.start"
+    [comparisonEnd]="campaignTwo.value.end">
+    <input matStartDate placeholder="Start date" formControlName="start">
+    <input matEndDate placeholder="End date" formControlName="end">
+  </mat-date-range-input>
+  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+  <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+</mat-form-field>
+
+<mat-form-field class="example-form-field">
+  <mat-label>Second campaign</mat-label>
+  <mat-date-range-input
+    [formGroup]="campaignTwo"
+    [rangePicker]="campaignTwoPicker"
+    [comparisonStart]="campaignOne.value.start"
+    [comparisonEnd]="campaignOne.value.end">
+    <input matStartDate placeholder="Start date" formControlName="start">
+    <input matEndDate placeholder="End date" formControlName="end">
+  </mat-date-range-input>
+  <mat-datepicker-toggle matIconSuffix [for]="campaignTwoPicker"></mat-datepicker-toggle>
+  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+  <mat-date-range-picker #campaignTwoPicker></mat-date-range-picker>
+</mat-form-field>
+
+<br>
+<mat-form-field class="col-md-2">
+  <mat-label>
+    fechaminmax
+  </mat-label>
+
+  <input
+    matInput
+    [matDatepicker]="dateStart"
+    [max]="maxDate"
+    [min]="minDate"
+    required
+    readonly
+  />
+
+  <mat-datepicker-toggle
+    matSuffix
+    [for]="dateStart"
+  ></mat-datepicker-toggle>
+  <mat-datepicker #dateStart></mat-datepicker>
+</mat-form-field>
+
+<br>
+<form [formGroup]="form">
+  <mat-form-field class="col-3">
+    <mat-label>Month and year</mat-label>
+    <input matInput [matDatepicker]="dp" formControlName = 'date'>
+    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+    <mat-datepicker #dp  
+                    startView="multi-year"
+                    (monthSelected)="setMonthAndYear($event, dp)"
+                    panelClass="example-month-picker">
+    </mat-datepicker>
+  </mat-form-field>
+</form>
+<br>
+
+<br>
+<h1>Dialog</h1>
+
+
+<button mat-button (click)="openDialog()">Open dialog</button>
+<br><br><br>
+
+
+
+
+
+
+
+
