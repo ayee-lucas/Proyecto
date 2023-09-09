@@ -15,9 +15,10 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {DialogComponent} from "./components/dialog/dialog.component";
 
 @NgModule({
-  declarations: [DogsComponent, ParamsComponent, FormsComponent],
+  declarations: [DogsComponent, ParamsComponent, FormsComponent, DialogComponent],
   imports: [CommonModule, AdminRoutingModule, SharedModule, FormsModule, MatDatepickerModule,
     BrowserAnimationsModule,
     MatToolbarModule,
